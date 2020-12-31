@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [Header("喇叭、攻擊音效")]
     public AudioSource AUD;
     public AudioClip Atk_sound;
+    public bool deadspot=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,16 +26,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Color P1_color = Color.blue;
-        Color P2_color = Color.red;
+
         Zombie zombie = target.GetComponent<Zombie>();
-        string message = "Player " + zombie.HP;
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (HP <= 0 && deadspot == false)
         {
+            deadspot = true;
+            print(string.Format("<color=blue>{0}</color>", "屁孩死了"));
+        }
+        if (Input.GetKeyDown(KeyCode.A) && HP > 0 && zombie.deadspot==false)
+        {
+            zombie.HP -= ATK;
+            if (zombie.HP <= 0)
+            {
+                zombie.HP = 0;
 
-            Debug.Log(string.Format("<color=blue>{0}</color>", zombie.HP));
-            print(string.Format("<color=blue>{0}</color>", zombie.HP));
+            }
+            print(string.Format("<color=red>{0}</color>", "僵屍的血減少"+ATK));
+            print(string.Format("<color=red>{0}</color>", "僵屍的血剩下" + zombie.HP));
+
+
         }
     }
 }
