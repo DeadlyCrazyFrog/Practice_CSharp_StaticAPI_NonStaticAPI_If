@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -183,6 +184,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 90077755}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &90077757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90077756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d72a3607cbd3524881bbfd270570019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 100
+  ATK: 30
+  target: {fileID: 1284488705}
+  AUD: {fileID: 90077758}
+  Atk_sound: {fileID: 8300000, guid: b2814898b8005b04dbb2fadf2cf26112, type: 3}
 --- !u!82 &90077758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -304,8 +322,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696332135}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.754486, b: 0.41037738, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -433,6 +452,23 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1284488704}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1284488706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284488705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa25c25fcefefe847b988195b543c1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 1.5
+  ATK: 30
+  target: {fileID: 90077756}
+  AUD: {fileID: 1284488707}
+  Atk_sound: {fileID: 8300000, guid: e5596bb1fd662e5418d0d33c355a4478, type: 3}
 --- !u!82 &1284488707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -658,6 +694,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
