@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -197,10 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   ATK: 20
-  target: {fileID: 1284488705}
-  AUD: {fileID: 90077758}
+  Player: {fileID: 1284488705}
+  Aud: {fileID: 90077758}
   Atk_sound: {fileID: 8300000, guid: b2814898b8005b04dbb2fadf2cf26112, type: 3}
-  deadspot: 0
 --- !u!82 &90077758
 AudioSource:
   m_ObjectHideFlags: 0
@@ -322,8 +322,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696332135}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.754486, b: 0.41037738, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -465,10 +466,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 100
   ATK: 20
-  target: {fileID: 90077756}
-  AUD: {fileID: 1284488707}
+  Zb: {fileID: 90077756}
+  Aud: {fileID: 1284488707}
   Atk_sound: {fileID: 8300000, guid: e5596bb1fd662e5418d0d33c355a4478, type: 3}
-  deadspot: 0
 --- !u!82 &1284488707
 AudioSource:
   m_ObjectHideFlags: 0
@@ -694,6 +694,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

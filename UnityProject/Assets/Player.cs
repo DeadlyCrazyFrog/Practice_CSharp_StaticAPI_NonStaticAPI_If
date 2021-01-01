@@ -11,12 +11,12 @@ public class Player : MonoBehaviour
     [Header("攻擊力")]
     [Range(0f, 50f)]
     public float ATK = 30f;
-    [Header("玩家 Player")]
-    public GameObject target;
+    [Header("殭屍")]
+    public GameObject Zb;
     [Header("喇叭、攻擊音效")]
-    public AudioSource AUD;
+    public AudioSource Aud;
     public AudioClip Atk_sound;
-    public bool deadspot=false;
+    private bool deadspot=false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +27,14 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        Zombie zombie = target.GetComponent<Zombie>();
+        Zombie zombie = Zb.GetComponent<Zombie>();
 
         if (HP <= 0 && deadspot == false)
         {
             deadspot = true;
             print(string.Format("<color=blue>{0}</color>", "屁孩死了"));
         }
-        if (Input.GetKeyDown(KeyCode.A) && HP > 0 && zombie.deadspot==false)
+        if (Input.GetKeyDown(KeyCode.A) && HP > 0 && zombie.HP > 0)
         {
             zombie.HP -= ATK;
             if (zombie.HP <= 0)
@@ -42,8 +42,9 @@ public class Player : MonoBehaviour
                 zombie.HP = 0;
 
             }
-            print(string.Format("<color=red>{0}</color>", "僵屍的血減少"+ATK));
-            print(string.Format("<color=red>{0}</color>", "僵屍的血剩下" + zombie.HP));
+            Aud.PlayOneShot(Atk_sound);
+            print(string.Format("<color=red>{0}</color>", "殭屍的血減少" + ATK));
+            print(string.Format("<color=red>{0}</color>", "殭屍的血剩下" + zombie.HP));
 
 
         }
